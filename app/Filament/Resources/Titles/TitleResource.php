@@ -6,9 +6,7 @@ use App\Filament\Resources\Titles\Pages\CreateTitle;
 use App\Filament\Resources\Titles\Pages\EditTitle;
 use App\Filament\Resources\Titles\Pages\ListTitles;
 use App\Filament\Resources\Titles\RelationManagers\CitiesRelationManager;
-use App\Filament\Resources\Titles\RelationManagers\LanguagesDuplicatesRelationManager;
 use App\Filament\Resources\Titles\RelationManagers\LanguagesRelationManager;
-use App\Filament\Resources\Titles\RelationManagers\PeopleDuplicatesRelationManager;
 use App\Filament\Resources\Titles\RelationManagers\PeopleRelationManager;
 use App\Filament\Resources\Titles\Schemas\TitleForm;
 use App\Filament\Resources\Titles\Tables\TitlesTable;
@@ -38,10 +36,8 @@ class TitleResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //PeopleRelationManager::class,
-            PeopleDuplicatesRelationManager::class,
-            //LanguagesRelationManager::class,
-            LanguagesDuplicatesRelationManager::class,
+            PeopleRelationManager::class,
+            LanguagesRelationManager::class,
             CitiesRelationManager::class,
         ];
     }

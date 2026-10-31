@@ -17,13 +17,14 @@ class PeopleRelationManager extends RelationManager
 {
     protected static string $relationship = 'people';
 
-    protected static ?string $title = 'People - MorphToMany - Intermediate Table Model - No duplicates';
+    protected static ?string $title = 'People - MorphToMany - Intermediate Table Model - allowDuplicates';
 
     protected static ?string $relatedResource = PersonResource::class;
 
     public function table(Table $table): Table
     {
         return $table
+            ->allowDuplicates()
             ->pushColumns([
                 TextColumn::make('role'),
                 TextColumn::make('text'),
