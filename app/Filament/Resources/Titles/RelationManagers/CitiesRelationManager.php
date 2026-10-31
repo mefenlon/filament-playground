@@ -15,7 +15,7 @@ class CitiesRelationManager extends RelationManager
 {
     protected static string $relationship = 'cities';
 
-    protected static ?string $title = 'Cities - BelongsToMany - No duplicates';
+    protected static ?string $title = 'Cities - BelongsToMany - allowDuplicates';
 
     protected static ?string $relatedResource = CityResource::class;
 
