@@ -3,12 +3,15 @@
 namespace App\Filament\Resources\Titles\RelationManagers;
 
 use App\Filament\Resources\People\PersonResource;
+use Filament\Actions\Action;
 use Filament\Actions\AttachAction;
 use Filament\Actions\CreateAction;
 use Filament\Actions\DetachAction;
 use Filament\Actions\DetachBulkAction;
+use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Schemas\Components\Text;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -40,6 +43,13 @@ class PeopleRelationManager extends RelationManager
             ])
             ->recordActions([
                 DetachAction::make(),
+                Action::make('details')
+                    ->modalHeading('Record Details')
+                    ->schema([
+                        Text::make(fn ($record) => "ID: {$record->id}"),
+                        Text::make(fn ($record) => "Name: {$record->name}"),
+                    ])
+
             ])
             ->toolbarActions([
                 DetachBulkAction::make(),
